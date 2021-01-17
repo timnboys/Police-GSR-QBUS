@@ -54,7 +54,6 @@ function gsrcheck(source, identifier)
     local Player = QBCore.Functions.GetPlayer(identifier)
     local nameData = Player.PlayerData.charinfo
 	Wait(100)
-   -- local fullName = Player.PlayerData.charinfo.firstname..' '..Player.PlayerData.charinfo.lastname
     local fullName = string.format("%s %s", nameData.firstname, nameData.lastname)
     if gsrData[identifier] ~= nil then
         TriggerClientEvent("QBCore:Notify", src, 'Test for '..fullName..' comes back POSITIVE (Has Shot)', "success", 8000)
@@ -63,19 +62,7 @@ function gsrcheck(source, identifier)
     end
 end
 
---[[RegisterServerEvent('GSR:Status2')
-AddEventHandler('GSR:Status2', function(playerid)
-    local src = source
-    local identifier = GetPlayerIdentifiers(playerid)[1]
-	local nameData = getIdentity(identifier)
-	Wait(100)
-	local fullName = string.format("%s %s", nameData.firstname, nameData.lastname)
-	if gsrData[identifier] ~= nil then
-		TriggerClientEvent('mythic_notify:client:SendAlert', src, { type = 'success', text = 'Test for '..fullName..' comes back POSITIVE (Has Shot)', length = 5000 })
-    else
-		TriggerClientEvent('mythic_notify:client:SendAlert', src, { type = 'error', text = 'Test for '..fullName..' comes back NEGATIVE (Has Not Shot)', length = 5000 })
-    end
-end)--]]
+
 
 QBCore.Functions.CreateCallback('GSR:Status', function(source, cb)
     local src = source
