@@ -1,14 +1,14 @@
---QBCore = nil
+QBCore = nil
 local hasShot = false
 local ignoreShooting = false
 
 
---[[Citizen.CreateThread(function()
+Citizen.CreateThread(function()
     while QBCore == nil do
         TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
         Citizen.Wait(0)
     end
-end)--]]
+end)
 
 
 
