@@ -22,7 +22,7 @@ QBCore.Commands.Add("gsr", "Do GSR Test ", {{name ="id ", help="Player ID"}}, tr
 	end
 end)
 
-AddEventHandler('QBCore:Client:OnPlayerUnload', function(source)
+AddEventHandler('playerDropped', function()
     local src = source
     local identifier = GetPlayerIdentifiers(src)[1]
     if gsrData[identifier] ~= nil then
